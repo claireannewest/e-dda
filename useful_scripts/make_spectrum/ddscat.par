@@ -6,14 +6,14 @@
 'LATTDR' = CALPHA*6 (GKDLDR, LATTDR, SCLDR)
 'NOTBIN' = CBINFLAG (ALLBIN, ORIBIN, NOTBIN)
 '**** Initial Memory Allocation ****'
-48 250 340 = dimensioning allowance for target generation
-0.0 106 -11 = x, y, z position of e-beam center
+30 200 40 = dimensioning allowance for target generation
+0.0 31 0 = x, y, z position of e-beam center
 60.0 = initial KE of electron
 '**** Target Geometry and Composition ****'
 'FROM_FILE' = CSHAPE*9 shape directive
 no SHPAR parameters needed
 1         = NCOMP = number of dielectric materials
-'/gscratch/chem/masiello_group/dielectric/auJC.tab' = file with refractive index for the chosen material 
+'/home/caw97/diels/Cu_PE.txt' = file with refractive index for the chosen material 
 '**** Error Tolerance ****'
 1.00e-5 = TOL = MAX ALLOWED (NORM OF |G>=AC|E>-ACA|X>)/(NORM OF AC|E>)
 '**** Integration limiter for PBC calculations ****'
@@ -23,7 +23,7 @@ no SHPAR parameters needed
 '**** Wavelengths (micron) ****'
 0.4 0.4 1 'INV' = wavelengths (first,last,how many,how=LIN,INV,LOG)
 '**** Effective Radii (micron) **** '
-0.08210 0.08210 1 'LIN' = aeff (first,last,how many,how=LIN,INV,LOG)
+0.01089 0.01089 1 'LIN' = aeff (first,last,how many,how=LIN,INV,LOG)
 '**** Define Incident Polarizations ****'
 (0,0) (1.,0.) (0.,0.) = Polarization state e01 (k along x axis)
 1 = IORTH  (=1 to do only pol. state e01; =2 to also do orth. pol. state)
