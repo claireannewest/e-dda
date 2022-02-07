@@ -6,7 +6,7 @@ from shutil import copyfile
 
 intermsof = 'eV' # Either 'eV' or 'um' (pick which unit the name of folders to be in.)
 start = 0.25   	 # Starting wavelength or energy of spectrum 
-finish = 4.0	 # Highest wavelength or energy of spectrum (must be > start)
+finish = 2.5	 # Highest wavelength or energy of spectrum (must be > start)
 num = 101      	 # Number of wavelengths / energy points in spectrum
 howmany = 51	 # How many wavelenghts / energy points per job 
 
@@ -71,7 +71,7 @@ def make_submissionscripts(intermsof, start, finish, num, howmany):
 		lines = new_launch.readlines()
 		thepoints = folders[j*howmany : (j+1)*howmany]
 		new_string = str('array=( ')+' '.join(repr(i) for i in thepoints).replace("'", '"') + str(' )') + str('\n')
-		lines[2] = str('#SBATCH --job-name=eel')+str(j)+str('\n')
+		# lines[2] = str('#SBATCH --job-name=eel')+str(j)+str('\n')
 		lines[12] = new_string
 		new_launch = open(str('launch_part')+str(j)+str('.slurm'),"w")
 		new_launch.writelines(lines)
@@ -88,6 +88,8 @@ def make_submissionscripts(intermsof, start, finish, num, howmany):
 	file.write('\t' + str('sed -i -e "1,14d" temp') + '\n')
 	file.write('\t' + str('cat temp >>../Spectrum') + '\n')
 	file.write('\t' + str('rm temp') + '\n')
+	file.write('\t' + str('rm shape.dat') + '\n')
+	file.write('\t' + str('rm w000r000.avg') + '\n')
 	file.write('\t' + str('cd ../') + '\n')
 	file.write(str('done') + '\n')
 

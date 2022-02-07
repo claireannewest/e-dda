@@ -13,3 +13,7 @@ for file in launch_part*;
 do
   sbatch $file
 done
+
+wait
+
+sbatch --dependency=singleton --job-name=eel collect.slurm

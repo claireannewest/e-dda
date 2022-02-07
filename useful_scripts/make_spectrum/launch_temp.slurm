@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH --mail-user=caw97@cam.ac.uk
-#SBATCH --job-name=eel_test
+#SBATCH --job-name=eel
 #SBATCH --nodes=1
 #SBATCH --mem-per-cpu=4G
 ##SBATCH --mail-type=START,FAIL,END
