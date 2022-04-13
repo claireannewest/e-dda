@@ -1,0 +1,110 @@
+rm -f *.o make.out*  *.mod
+rm -f *.o make.out*  *.mod
+rm -f ddscat ddfield ddpol *~
+cpp -P -traditional-cpp -Ddp ddprecision.f90 \
+ddprecision_cpp.f90
+gfortran -c -O2 ddprecision_cpp.f90 -o ddprecision.o
+rm ddprecision_cpp.f90
+gfortran -c ddcommon.f90
+cpp -P -traditional-cpp   ddscat.f90 \
+DDSCAT_cpp.f90
+gfortran -c -O2  DDSCAT_cpp.f90 -o ddscat.o
+rm DDSCAT_cpp.f90
+gfortran -c -O2  alphadiag.f90 -o alphadiag.o
+gfortran -c -O2  blas.f90 -o blas.o
+gfortran -c -O2  ccgpack.f90 -o ccgpack.o
+cpp -P -traditional-cpp -Ddp cgcommon.f90 cgcommon_cpp.f90
+gfortran -c -O2  cgcommon_cpp.f90 -o cgcommon.o
+rm cgcommon_cpp.f90
+gfortran -c -O2  copyit.f90 -o copyit.o
+gfortran -c -O2  cprod.f90 -o cprod.o
+gfortran -c -O2  cxfft3n.f90 -o cxfft3n.o
+gfortran -c -O2  cxfft3_mkl_fake.f90 -o cxfft3_mkl_fake.o
+gfortran -c -O2  cxfftw_fake.f90 -o cxfftw_fake.o
+gfortran -c -O2  dielec.f90 -o dielec.o
+gfortran -c -O2  divide.f90 -o divide.o
+gfortran -c -O2  dsyevj3.f90 -o dsyevj3.o
+gfortran -c -O2  dummy.f90 -o dummy.o
+gfortran -c -O2  errmsg.f90 -o errmsg.o
+cpp -P -traditional-cpp  eself.f90 eself_cpp.f90
+gfortran -c -O2  eself_cpp.f90 -o eself.o
+rm eself_cpp.f90
+gfortran -c -O2  evala.f90 -o evala.o
+gfortran -c -O2  evale.f90 -o evale.o
+gfortran -c -O2  besseli0.f90 -o besseli0.o
+gfortran -c -O2  besseli1.f90 -o besseli1.o
+gfortran -c -O2  besselk0.f90 -o besselk0.o
+gfortran -c -O2  besselk1.f90 -o besselk1.o
+gfortran -c -O2  evalq.f90 -o evalq.o
+gfortran -c -O2  extend.f90 -o extend.o
+gfortran -c -O2  gasdev.f90 -o gasdev.o
+gfortran -c -O2  getfml.f90 -o getfml.o
+gfortran -c -O2  getmueller.f90 -o getmueller.o
+gfortran -c -O2  gpfa.f90 -o gpfa.o
+gfortran -c -O2  interp.f90 -o interp.o
+gfortran -c -O2  mpi_fake.f90 -o mpi_fake.o
+gfortran -c -O2  namer.f90 -o namer.o
+gfortran -c -O2  namer2.f90 -o namer2.o
+gfortran -c -O2  namid.f90 -o namid.o
+gfortran -c -O2  nuller.f90 -o nuller.o
+gfortran -c -O2  orient.f90 -o orient.o
+gfortran -c -O2  p_lm.f90 -o p_lm.o
+gfortran -c -O2  pbcscavec.f90 -o pbcscavec.o
+gfortran -c -O2  pim.f90 -o pim.o
+gfortran -c -O2  prinaxis.f90 -o prinaxis.o
+gfortran -c -O2  ran3.f90 -o ran3.o
+gfortran -c -O2  reapar.f90 -o reapar.o
+gfortran -c -O2  reashp.f90 -o reashp.o
+gfortran -c -O2  reduce.f90 -o reduce.o
+gfortran -c -O2  restore.f90 -o restore.o
+gfortran -c -O2  rot2.f90 -o rot2.o
+gfortran -c -O2  rotate.f90 -o rotate.o
+cpp -P -traditional-cpp  scat.f90 scat_cpp.f90
+gfortran -c -O2  scat_cpp.f90 -o scat.o
+rm scat_cpp.f90
+gfortran -c -O2  scavec.f90 -o scavec.o
+gfortran -c -O2  tar2el.f90 -o tar2el.o
+gfortran -c -O2  tar2sp.f90 -o tar2sp.o
+gfortran -c -O2  tar3el.f90 -o tar3el.o
+gfortran -c -O2  taranirec.f90 -o taranirec.o
+gfortran -c -O2  tarblocks.f90 -o tarblocks.o
+gfortran -c -O2  tarcel.f90 -o tarcel.o
+gfortran -c -O2  tarcyl.f90 -o tarcyl.o
+gfortran -c -O2  tarcylcap.f90 -o tarcylcap.o
+gfortran -c -O2  tarell.f90 -o tarell.o
+gfortran -c -O2  target.f90 -o target.o
+gfortran -c -O2  targspher.f90 -o targspher.o
+gfortran -c -O2  tarhex.f90 -o tarhex.o
+gfortran -c -O2  tarlyrslab.f90 -o tarlyrslab.o
+gfortran -c -O2  tarnas.f90 -o tarnas.o
+gfortran -c -O2  tarnsp.f90 -o tarnsp.o
+gfortran -c -O2  tarpbxn.f90 -o tarpbxn.o
+gfortran -c -O2  tarprsm.f90 -o tarprsm.o
+gfortran -c -O2  tarrctblk3.f90 -o tarrctblk3.o
+gfortran -c -O2  tarrec.f90 -o tarrec.o
+gfortran -c -O2  tarrecrec.f90 -o tarrecrec.o
+gfortran -c -O2  tarslbhol.f90 -o tarslbhol.o
+gfortran -c -O2  tartet.f90 -o tartet.o
+gfortran -c -O2  timeit.f90 -o timeit.o
+gfortran -c -O2  version.f90 -o version.o
+gfortran -c -O2  wrimsg.f90 -o wrimsg.o
+gfortran -c -O2  writebin.f90 -o writebin.o
+gfortran -c -O2  writefml.f90 -o writefml.o
+gfortran -c -O2  writepol.f90 -o writepol.o
+gfortran -c -O2  writesca.f90 -o writesca.o
+gfortran -c -O2  zbcg2wp.f90 -o zbcg2wp.o
+LOADEDMODULES=
+LOADEDMODULES_modshare=
+LD_LIBRARY_PATH=/usr/lib:/usr/local/lib:/usr/lib/x86_64-linux-gnu/openmpi/lib:/usr/lib/x86_64-linux-gnu
+LD_LIBRARY_PATH_modshare=
+gfortran ddscat.o alphadiag.o blas.o ccgpack.o cgcommon.o copyit.o cprod.o cxfft3n.o cxfft3_mkl_fake.o cxfftw_fake.o ddcommon.o dielec.o divide.o dsyevj3.o dummy.o errmsg.o eself.o evala.o evale.o besseli0.o besseli1.o besselk0.o besselk1.o evalq.o extend.o gasdev.o getfml.o getmueller.o gpfa.o interp.o mpi_fake.o namer.o namer2.o namid.o nuller.o orient.o p_lm.o pbcscavec.o pim.o prinaxis.o ran3.o reapar.o reashp.o reduce.o restore.o rot2.o rotate.o scat.o scavec.o tar2el.o tar2sp.o tar3el.o taranirec.o tarblocks.o tarcel.o tarcyl.o tarcylcap.o tarell.o target.o targspher.o tarhex.o tarlyrslab.o tarnas.o tarnsp.o tarpbxn.o tarprsm.o tarrctblk3.o tarrec.o tarrecrec.o tarslbhol.o tartet.o timeit.o version.o wrimsg.o writebin.o writefml.o writepol.o writesca.o zbcg2wp.o   -o ddscat
+cpp -P -traditional-cpp  ddfield.f90 DDfield_cpp.f90
+gfortran -c -O2  DDfield_cpp.f90 -o ddfield.o
+rm DDfield_cpp.f90
+gfortran -c -O2  readpol.f90 -o readpol.o
+gfortran ddfield.o readpol.o besseli0.o besseli1.o besselk0.o besselk1.o   -o ddfield
+gfortran -c -O2  ddpol.f90 -o ddpol.o
+gfortran ddpol.o readpol.o  -o ddpol
+gfortran -c -O2  calltarget.f90 -o calltarget.o
+gfortran -c -O2  sizer.f90 -o sizer.o
+gfortran calltarget.o ddcommon.o dsyevj3.o errmsg.o gasdev.o p_lm.o prinaxis.o ran3.o reashp.o sizer.o tar2el.o tar2sp.o tar3el.o taranirec.o tarblocks.o tarcel.o tarcyl.o tarcylcap.o tarell.o target.o targspher.o tarhex.o tarlyrslab.o tarnas.o tarnsp.o tarpbxn.o tarprsm.o tarrctblk3.o tarrec.o tarrecrec.o tarslbhol.o tartet.o wrimsg.o  -o calltarget

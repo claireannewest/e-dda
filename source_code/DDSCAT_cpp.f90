@@ -31,12 +31,7 @@
 !                      uncomment INTEGER MPI_COMM_WORLD statement
 !                      compile mpi_fake.f
 
-#ifdef mpi
-      INCLUDE 'mpif.h'
-#endif
-#ifndef mpi
       INTEGER :: MPI_COMM_WORLD
-#endif
 
 !-----------------------------------------------------------------------
 
@@ -985,9 +980,6 @@
       IF(MYID==0)THEN   ! begin if(myid==0)... #1
          WRITE(IDVOUT,FMT=9000)CSTAMP
 
-#ifdef openmp
-         WRITE(IDVOUT,FMT=9000)'compiled with OpenMP enabled'
-#endif
 
          IF(WP==KIND(0.E0))THEN
             WRITE(CMSGNM,FMT='(A)')'    Single-precision version'

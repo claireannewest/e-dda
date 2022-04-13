@@ -786,7 +786,8 @@
 9043  FORMAT(                                                    &
          ' Results averaged over ',I4,' target orientations',/,  &
          '                   and ',I4,' incident polarizations')
-9050  FORMAT(                                                         &
+90
+50    FORMAT(                                                         &
          10X,'Qext',7X,'Qabs',7X,'Qsca',6X,'g(1)=<cos>',2X,'<cos^2>', &
          5X,'Qbk',7X,'Qpha',/,1X,'JO=1: ',1P,3E11.4,E12.4,2E11.4,E12.4)
 9051  FORMAT(10X,'Qext',7X,'Qabs',7X,'Qsca',/,1X,'JO=1: ',1P,3E11.4)
@@ -794,9 +795,8 @@
 9055  FORMAT(                                                            &
          1X,'JO=2: ',1P,3E11.4,E12.4,2E11.4,E12.4,/,1X,'mean: ',         &
          3E11.4,E12.4,2E11.4,E12.4,/,1X,'Qpol= ',E11.4,50X,'dQpha=',E12.4)
-9056  FORMAT(1P, E10.4, 4E12.4, E12.4, E11.4, E11.4, I6) !CAW
-!9056  FORMAT(1P, E10.4, 4E11.4, E12.4, E11.4, E11.4, I6)
-9057  FORMAT(1P, E10.4, E11.4, 3E12.4)
+9056  FORMAT(1P,E10.4,4E11.4,E12.4,E11.4,E11.4,I6)
+9057  FORMAT(1P,E10.4,E11.4,3E12.4)
 9060  FORMAT(                                                            &
          '**** Selected scattering directions ',                         &
          ' [note: incident pol state 1 is FIXED!]',/,                    &
